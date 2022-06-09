@@ -1,11 +1,14 @@
+<!doctype html>
 <html>
-     <!-- testing dev branch commit  -->
     <head>
         <meta name="viewport" content="width=device-width, user-scalable=no">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+        <script src="scripts/splide-4.0.2/dist/js/splide.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.3.1/dist/js/splide.min.js"></script>
+        <link rel="stylesheet" href="scripts/splide-4.0.2/dist/css/splide.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.3.1/dist/css/splide.min.css">
         <link rel="stylesheet" type="text/css" href="styles/main.css"> </link>
     </head>
-
     <body>
         <header>
             <div class="header-container">
@@ -15,6 +18,7 @@
         </header>
 
         <main>
+
             <section class="hero-section">
                 <div class="hero-section-container">
                     <div class="row flex">
@@ -31,14 +35,16 @@
                                             <label for="days">How Many Days of Hire:</label>
                                             <input type="number" min="1" max="15" name="days" id="days-input" required>
                                         </div>
+
                                         <div class="input-row">
                                             <button type="submit" id="submit" class="button button-large button-solid " > Show me my options</button>
                                         </div>
+
                                     </form>
                                 </div>
+                                
                             </div>
                         </div>
-
                         <div class="col-2-3 flex vertical-aligned">
                             <div class="hero-intro">
                                 <h1 class="fancy-animate text-fancy"> 
@@ -49,7 +55,6 @@
                                 <h2 class="fancy-animate2"> Enter your details now to see your avaiable options </h2>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </section>
@@ -58,10 +63,11 @@
             </section>
 
         </main>
-
         <footer>
-        </footer>
 
+        </footer>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+        <script src="scripts/vehicles.js"> </script>
         <script src="scripts/main.js"> </script>
     </body>
 </html>

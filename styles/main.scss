@@ -1,3 +1,8 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,400;1,800&family=Pacifico&family=Satisfy&family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&display=swap');
+
+
 header {
     position: fixed;
     top: 0;
@@ -11,6 +16,7 @@ header {
         background-color: #00111f;
         display: flex;
         flex-wrap: wrap;
+        box-sizing: border-box;
         padding: 0 20px;
     }
 
@@ -20,6 +26,32 @@ header {
         flex: 1;
         letter-spacing: 5px;
     }
+
+    .logo-small {
+        height: 25px;
+        vertical-align: middle;
+        margin: auto 20px;
+    }
+
+    .text-fancy {
+        padding: 0 20px;
+    }
+}
+
+.text-fancy {
+    font-family: 'Pacifico', cursive;
+}
+
+.text-highlight {
+    color: #fec879;
+}
+
+.dark-text {
+    color: #01111f;
+}
+
+.text-large {
+    font-size: 5rem;
 }
 
 body {
@@ -27,6 +59,7 @@ body {
     margin: 0;
     font-family: 'Rajdhani', sans-serif;
 }
+
 
 .button-large {
     height: 50px;
@@ -69,15 +102,6 @@ body {
     }
 }
 
-.hero-intro {
-    position: absolute;
-    color: white;
-    text-shadow: 1px 1px black;
-
-    .logo-small {
-        height: 50px;;
-    }
-}
 
 .row {
     display: flex;
@@ -97,16 +121,25 @@ body {
     }
 }
 
+.flex {
+    display: flex;
+}
+
+.full-width {
+    width: 100%;
+    display: block;
+}
+
 .form-section {
     vertical-align: middle;
     width: 100%;
     text-align: center;
 
-
     .form-container {
         border-radius: 10px;
         background-color: #002749;
-        width: 300px;
+        width: 70%;
+        max-width: 700px;
         margin: 0 auto;
         color: white;
         padding: 30px;
@@ -116,6 +149,8 @@ body {
 
         .input-row {
             padding: 10px 0;
+            display: inline-block;
+            margin: 10px 20px 10px 0;
 
             label {
                 width: 100%;
@@ -142,10 +177,129 @@ body {
 }
 
 
+.vehicle-options {
+    vertical-align: middle;
+    width: 100%;
+    height: 100vh;
+
+    img {
+        height: 180px;
+    }
+}
+
 .vertical-aligned {
     align-items: center;
 }
 
+.vehicle-card {
+    display: inline-block;
+    height: 100vh;
+    position: relative;
+    padding: 100px 50px;
+
+    .vehicle-card-container {
+        position: relative;
+        // background-image: url(../images/shadow.png);
+        // background-position-y: bottom;
+        // background-size: 100%;
+        // background-repeat: no-repeat;
+        // padding-bottom: 20px;
+        display: flex;
+        height: 100%;
+    }
 
 
+    .verhicle-images {
+        padding: 50px 20px 0;
+        width: 800px;
+        margin: 0 auto;
+        position: absolute;
+        z-index: 1;
+        text-align: center;
 
+        img {
+            height: 400px;
+        }
+    }
+
+    .vehicle-info {
+        background: #f2f2f2;
+        background-image: linear-gradient(rgba(255,255,255,.5) 0,rgba(255,255,255,0) 40%,rgba(0,0,0,0) 60%,rgba(0,0,0,.5) 100%);
+        background-blend-mode: overlay;
+        padding: 2rem 5rem;
+        display: flex;
+        position: absolute;
+        min-height: 200px;
+        width: 40%;
+        right: 0;
+        border-radius: 5px;
+    }
+
+    h2 {
+        flex: 40%;
+        text-transform: uppercase;
+    }
+
+    .vehicle-info-details {
+        flex: 60%;
+        font-size: 14px;
+        padding-bottom: 20px;
+        
+    }
+}
+
+.hero-intro {
+    color: white;
+    text-shadow: 1px 1px black;
+    text-align: center;
+    width: 100%;
+    .logo-small {
+        height: 50px;;
+    }
+}
+
+.fancy-animate {
+    position: relative;
+    font-weight: 200;
+    font-size: 4em;
+    margin: 0;
+  }
+  
+  .fancy-animate .text-wrapper {
+    position: relative;
+    display: inline-block;
+    padding-top: 0.2em;
+    padding-right: 0.05em;
+    padding-bottom: 0.1em;
+    overflow: hidden;
+  }
+  
+  .fancy-animate .letter {
+    transform-origin: 50% 100%;
+    display: inline-block;
+  }
+
+  .fancy-animate2 {
+    font-size: 30px;
+    font-weight: normal;
+
+    .letter {
+        display: inline-block;
+        line-height: 1em;
+        opacity: 0;
+      }
+  }
+  
+
+  .splide__arrows {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+  }
+
+
+  .splide__slide--clone {
+      &::marker {
+          display: none;
+      }
+  }

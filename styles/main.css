@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,400;1,800&family=Pacifico&family=Satisfy&family=Ubuntu:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&display=swap");
 header {
   position: fixed;
   top: 0;
@@ -15,6 +17,8 @@ header .header-container {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 0 20px;
 }
 
@@ -25,6 +29,32 @@ header h1 {
       -ms-flex: 1;
           flex: 1;
   letter-spacing: 5px;
+}
+
+header .logo-small {
+  height: 25px;
+  vertical-align: middle;
+  margin: auto 20px;
+}
+
+header .text-fancy {
+  padding: 0 20px;
+}
+
+.text-fancy {
+  font-family: 'Pacifico', cursive;
+}
+
+.text-highlight {
+  color: #fec879;
+}
+
+.dark-text {
+  color: #01111f;
+}
+
+.text-large {
+  font-size: 5rem;
 }
 
 body {
@@ -77,16 +107,6 @@ body {
   bottom: 0;
 }
 
-.hero-intro {
-  position: absolute;
-  color: white;
-  text-shadow: 1px 1px black;
-}
-
-.hero-intro .logo-small {
-  height: 50px;
-}
-
 .row {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -107,6 +127,17 @@ body {
   height: 100%;
 }
 
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.full-width {
+  width: 100%;
+  display: block;
+}
+
 .form-section {
   vertical-align: middle;
   width: 100%;
@@ -116,7 +147,8 @@ body {
 .form-section .form-container {
   border-radius: 10px;
   background-color: #002749;
-  width: 300px;
+  width: 70%;
+  max-width: 700px;
   margin: 0 auto;
   color: white;
   padding: 30px;
@@ -125,6 +157,8 @@ body {
 
 .form-section .form-container .input-row {
   padding: 10px 0;
+  display: inline-block;
+  margin: 10px 20px 10px 0;
 }
 
 .form-section .form-container .input-row label {
@@ -148,9 +182,132 @@ body {
   color: #fec879;
 }
 
+.vehicle-options {
+  vertical-align: middle;
+  width: 100%;
+  height: 100vh;
+}
+
+.vehicle-options img {
+  height: 180px;
+}
+
 .vertical-aligned {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.vehicle-card {
+  display: inline-block;
+  height: 100vh;
+  position: relative;
+  padding: 100px 50px;
+}
+
+.vehicle-card .vehicle-card-container {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+}
+
+.vehicle-card .verhicle-images {
+  padding: 50px 20px 0;
+  width: 800px;
+  margin: 0 auto;
+  position: absolute;
+  z-index: 1;
+  text-align: center;
+}
+
+.vehicle-card .verhicle-images img {
+  height: 400px;
+}
+
+.vehicle-card .vehicle-info {
+  background: #f2f2f2;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(255, 255, 255, 0.5)), color-stop(40%, rgba(255, 255, 255, 0)), color-stop(60%, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.5)));
+  background-image: linear-gradient(rgba(255, 255, 255, 0.5) 0, rgba(255, 255, 255, 0) 40%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.5) 100%);
+  background-blend-mode: overlay;
+  padding: 2rem 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  min-height: 200px;
+  width: 40%;
+  right: 0;
+  border-radius: 5px;
+}
+
+.vehicle-card h2 {
+  -webkit-box-flex: 40%;
+      -ms-flex: 40%;
+          flex: 40%;
+  text-transform: uppercase;
+}
+
+.vehicle-card .vehicle-info-details {
+  -webkit-box-flex: 60%;
+      -ms-flex: 60%;
+          flex: 60%;
+  font-size: 14px;
+  padding-bottom: 20px;
+}
+
+.hero-intro {
+  color: white;
+  text-shadow: 1px 1px black;
+  text-align: center;
+  width: 100%;
+}
+
+.hero-intro .logo-small {
+  height: 50px;
+}
+
+.fancy-animate {
+  position: relative;
+  font-weight: 200;
+  font-size: 4em;
+  margin: 0;
+}
+
+.fancy-animate .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.2em;
+  padding-right: 0.05em;
+  padding-bottom: 0.1em;
+  overflow: hidden;
+}
+
+.fancy-animate .letter {
+  -webkit-transform-origin: 50% 100%;
+          transform-origin: 50% 100%;
+  display: inline-block;
+}
+
+.fancy-animate2 {
+  font-size: 30px;
+  font-weight: normal;
+}
+
+.fancy-animate2 .letter {
+  display: inline-block;
+  line-height: 1em;
+  opacity: 0;
+}
+
+.splide__arrows {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.splide__slide--clone::marker {
+  display: none;
 }
 /*# sourceMappingURL=main.css.map */

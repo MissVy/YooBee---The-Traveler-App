@@ -12,48 +12,46 @@
     <body>
         <header>
             <div class="header-container">
-                <img class="logo-small" src="images/nzlogo.svg" alt="">
                 <h1 class="text-fancy"> The Traveller </h1>
+                <img class="logo-small" src="images/nzlogo.svg" alt="">
             </div>
         </header>
 
         <main>
 
             <section class="hero-section">
-                <div class="hero-section-container">
-                    <div class="row flex">
-                        <div class="col-1-3 flex vertical-aligned">
-                            <div class="form-section">
-                                <div class="form-container">
-                                    <h1 class="hero-text"> Hello World! </h1>
-                                    <form id="form" action="">
-                                        <div class="input-row">
-                                            <label for="passengers">How Many Passengers:</label>
-                                            <input type="number" min="1" max="6" name="passengers" id="passengers-input" required>
-                                        </div>
-                                        <div class="input-row">
-                                            <label for="days">How Many Days of Hire:</label>
-                                            <input type="number" min="1" max="15" name="days" id="days-input" required>
-                                        </div>
-
-                                        <div class="input-row">
-                                            <button type="submit" id="submit" class="button button-large button-solid " > Show me my options</button>
-                                        </div>
-
-                                    </form>
-                                </div>
-                                
-                            </div>
+                <div class="vertical-aligned flex hero-section-container">
+                    <div class="wrapper full-width">
+                        <!-- col-1-3 flex vertical-aligned -->
+                        <!-- col-2-3 flex vertical-aligned -->
+                        <div class="hero-intro">
+                            <h1 class="fancy-animate text-fancy"> 
+                                <span class="text-wrapper">
+                                    <span class="letters ">Let the adventure begin! </span>
+                                </span>
+                            </h1>
+                            <h2 class="fancy-animate2"> Enter your details now to see your avaiable options </h2>
                         </div>
-                        <div class="col-2-3 flex vertical-aligned">
-                            <div class="hero-intro">
-                                <h1 class="fancy-animate text-fancy"> 
-                                    <span class="text-wrapper">
-                                        <span class="letters ">Let the adventure begin! </span>
-                                    </span>
-                                </h1>
-                                <h2 class="fancy-animate2"> Enter your details now to see your avaiable options </h2>
+
+                        <div class="form-section">
+                            <div class="form-container">
+                                <form id="form" action="">
+                                    <div class="input-row col-1-3">
+                                        <label for="passengers">How Many Passengers:</label>
+                                        <input type="number" min="1" max="6" name="passengers" id="passengers-input" required>
+                                    </div>
+                                    <div class="input-row col-1-3">
+                                        <label for="days">How Many Days of Hire:</label>
+                                        <input type="number" min="1" max="15" name="days" id="days-input" required>
+                                    </div>
+
+                                    <div class="input-row col-1-3">
+                                        <button type="submit" id="submit" class="button button-large button-solid " > Show me my options</button>
+                                    </div>
+
+                                </form>
                             </div>
+                            
                         </div>
                     </div>
                 </div>

@@ -74,15 +74,16 @@ body {
 .button-solid {
     outline: none;
     border: none;
-    background-color: #fec879;
+    background-color: #ee9f46;
     border-radius: 5px;
     transition: all .6s cubic-bezier(0.165, 0.84, 0.44, 1);
-
+    padding: 0 30px;
+    
     &:hover {
         cursor: pointer;
         transform: scale(1.02);
         box-shadow: 2px 2px 5px #001527;
-        background-color: #ff9f00;
+        background-color: #ff8500;
     }
 }
 
@@ -164,13 +165,14 @@ body {
             input {
                 padding: 10px;
                 border-radius: 3px;
-                font-size: 16px;
+                font-size: 18px;
                 outline: none;
                 width: calc(100% - 20px);
                 display: block;
                 background: none;
                 border: 1px solid white;
-                color: #fec879;
+                color: #ff8500;
+                text-align: center;
             }
         }
     }
@@ -195,7 +197,7 @@ body {
     display: inline-block;
     height: 100vh;
     position: relative;
-    padding: 100px 50px;
+    padding: 50px 0 20px;
 
     .vehicle-card-container {
         position: relative;
@@ -211,11 +213,12 @@ body {
 
     .verhicle-images {
         padding: 50px 20px 0;
-        width: 800px;
+        width: 850px;
         margin: 0 auto;
         position: absolute;
         z-index: 1;
         text-align: center;
+        bottom: 20px;
 
         img {
             height: 400px;
@@ -229,8 +232,8 @@ body {
         padding: 2rem 5rem;
         display: flex;
         position: absolute;
-        min-height: 200px;
-        width: 40%;
+        height: 100%;
+        width: 50%;
         right: 0;
         border-radius: 5px;
     }
@@ -302,4 +305,30 @@ body {
       &::marker {
           display: none;
       }
+  }
+
+  .vehicles-output {
+      position: relative;
+  }
+
+  .splide__pagination__page {
+    background: #fec879;
+    width: 25px;
+    height: 25px;
+    margin: 5px;
+
+    &.is-active {
+        background: #ff8500;
+        color: black;
+    }
+  }
+
+  .splide__pagination {
+    counter-reset: pagination-num;
+   
+  }
+  
+  .splide__pagination__page:before {
+    counter-increment: pagination-num;
+    content: counter( pagination-num );
   }

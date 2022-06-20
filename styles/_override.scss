@@ -1,0 +1,39 @@
+.splide__pagination__page {
+    background: #fec879;
+    width: 25px;
+    height: 25px;
+    margin: 5px 10px;
+
+    &.is-active {
+        background: #ff8500;
+        color: black;
+    }
+  }
+
+  .splide__pagination {
+    counter-reset: pagination-num;
+    top: 85%;
+   
+  }
+  
+  .splide__pagination__page:before {
+    counter-increment: pagination-num;
+    content: counter( pagination-num );
+  }
+
+  .splide__arrows {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+
+.splide__slide--clone {
+    &::marker {
+        display: none;
+    }
+}
+
+.main-splide {
+  position: relative;
+}

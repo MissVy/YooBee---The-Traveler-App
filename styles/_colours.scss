@@ -1,0 +1,13 @@
+
+$light-background-color: #dbeeff;
+$light-highlight-color: #fec879;
+$dark-highlight-color: #ff8500;
+$dark-text-color: #01111f;
+
+.text-highlight {
+    color: $light-highlight-color;
+}
+
+.dark-text {
+    color: $dark-text-color;
+}

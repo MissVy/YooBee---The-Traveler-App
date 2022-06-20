@@ -11,7 +11,7 @@ const vehicles = [
         maxDays: 5,
         efficiency: 3.7,
         images: [
-            'Motorbike.1.png',
+            'bike.png',
             'bike2.png',
             'bike1.png'
         ]
@@ -66,7 +66,8 @@ const vehicles = [
         efficiency: 17,
         images: [
             'MotorHome.8.png',
-            // 'MotorHome.9.png'
+            'MotorHome.9.png',
+            'MotorHome.10.png'
         ]
     },
     // {id: 9, name: "MotorHome", title: "MotorHome Super Camper", minPassengers: 2, maxPassengers: 6, dailyRate: 200, minDays: 2, maxDays: 15, efficiency: 17}

@@ -10,63 +10,65 @@
 
     const vehiclesDiv = document.getElementById("vehicles-ul");
 
-
     function update(formData) {
         // Get user inputs
         passengers = formData.passengers;
         days = formData.days;
-        vehiclesDiv.innerHTML = ''
-        splideString = ''
+        vehiclesDiv.innerHTML = '';
+        splideString = '';
         splideString += `
             <div class="main-splide" aria-label="transport options">
                 <div class="splide__track">
                     <ul class="splide__list">`;
         // Validate user inputs against vehicle conditions and add available options to page
-        numAvailableOptions = 0
+        numAvailableOptions = 0;
         vehicles.forEach(vehicle => {
             if (passengers >= vehicle.minPassengers && passengers <= vehicle.maxPassengers && days >= vehicle.minDays && days <= vehicle.maxDays){
-                splideString += makeVehicleCard(vehicle)
-                numAvailableOptions++
+                splideString += makeVehicleCard(vehicle);
+                numAvailableOptions++;
             }
         });
         splideString += `
                     </ul>
                 </div>
         </div>
-        `
-        vehiclesDiv.innerHTML += splideString
+        `;
+        vehiclesDiv.innerHTML += splideString;
 
         //If there's no option available
         if (numAvailableOptions == 0) {
-            vehiclesDiv.innerText = makeErrorMessage(passengers, days)
+            vehiclesDiv.innerText = makeErrorMessage(passengers, days);
         }
 
         var splideSlider = document.getElementsByClassName( 'splide' );
 
-        for ( var i = 0; i < splideSlider.length; i++ ) {
-            new Splide( splideSlider[ i ], {
-                type: 'loop',
-                rewind: true,
-                autoplay: true,
-                pagination: false,
-                arrows: false,
-                interval: 2000,
-            } ).mount();
-        }
+        // for ( var i = 0; i < splideSlider.length; i++ ) {
+        //     new Splide( splideSlider[ i ], {
+        //         type: 'loop',
+        //         rewind: true,
+        //         autoplay: false,
+        //         pagination: false,
+        //         arrows: false,
+        //         interval: 1500,
+        //         drag: false,
+        //     } ).mount();
+        // }
 
         var splide = new Splide( '.main-splide', {
             perPage: 1,
             perMove: 1,
             autoplay: false,
             rewind: false,
-            arrows: true,
+            arrows: false,
+            snap   : true,
          
-        }).mount() 
+        }).mount();
     }
 
     //Create HTML element to display individual vehicle options
+
     function makeVehicleCard(vehicle) {
-        const imageSlider = makeImageSlider(vehicle)
+        const imageSlider = makeImageSlider(vehicle);
         element = `
             <li class='vehicle-card splide__slide' >
                 <div class="vehicle-card-container">
@@ -87,32 +89,29 @@
                             <div> Efficiency: ${vehicle.efficiency}L per 100KM</div> <br>
 
                             <div class="transport-cost-output-container">
-                                <div class="input-row">
-                                    <label for="days"> Distance of travel </label>
-                                    <input type="number" name="distance" id="${vehicle.id}-distance-input">
+                                <label for="days"> Distance of travel: </label>
+                                <div class="input-row flex">
+                                    <input class="input-box" type="number" name="distance" id="${vehicle.id}-distance-input" placeholder="e.g 500">
+                                    <button class="button-large button-solid" id="${vehicle.id}" onclick="hireVehicle(${vehicle.id})"> Estimate Trip </button>
                                 </div>
-                                <button class="button-medium button-solid" id="${vehicle.id}" onclick="hireVehicle(${vehicle.id})"> Estimate Trip </button>
+                                
                                 <div id="${vehicle.id}-cost-estimate-output"> </div>
                             </div>
                         </div>
-
-                       
-
-                        
                     </div>
                 </div>
             </li>
-        `
-        return element
+        `;
+        return element;
     }
 
     function makeErrorMessage(passengers, days) {
         errorMessage = vehiclesDiv.innerText = "\n\nSorry, no options available for your selected party and/or length.\n\n";
         if (days > 10){
-            errorMessage += 'Sorry, no vehicles available for 1 passenger and more than 10 days.\nPlease decrease days to below 10 or increase passenger number.'
+            errorMessage += 'Sorry, no vehicles available for 1 passenger and more than 10 days.\nPlease decrease days to below 10 or increase passenger number.';
         }
         if (passengers > 2 && days == 1){
-            errorMessage += 'For more than two passengers, your travel time must be two or more days'
+            errorMessage += 'For more than two passengers, your travel time must be two or more days';
         }
         return errorMessage;
     }
@@ -125,46 +124,54 @@
 
         vehicles.forEach(vehicle => {
             if (id == vehicle.id) {
-                selectedVehicle = vehicle
+                selectedVehicle = vehicle;
             }
-        })
-        const days = document.getElementById("days-input").value
-        const distance = document.getElementById(selectedVehicle.id + "-distance-input").value
-        const rentalCost = days * selectedVehicle.dailyRate
-        const fuelConsumption = distance * selectedVehicle.efficiency/100
+        });
+        const days = document.getElementById("days-input").value;
+        const distance = document.getElementById(selectedVehicle.id + "-distance-input").value;
+        const rentalCost = days * selectedVehicle.dailyRate;
+        const fuelConsumption = distance * selectedVehicle.efficiency/100;
 
-        if (!distance == '' && distance !==0) {
+        if (!distance == '' && distance !== 0) {
             document.getElementById(id + "-cost-estimate-output").innerHTML = `
-            <div> Transport Estimations </div>
-            <div> Rental cost: ${days} days * $${selectedVehicle.dailyRate} = $${rentalCost}    </div>
-            <div> Fuel Consumption: ${distance}KM *  ${selectedVehicle.efficiency}L/100KM = ${Math.ceil(fuelConsumption)} liters </div>
-        `
+            <div class="results">
+                <h3> Transport Estimations </h3>
+                <div> Rental cost: ${days} days * $${selectedVehicle.dailyRate} = $${rentalCost}   NZD </div>
+                <div> Fuel Consumption: ${distance}KM *  ${selectedVehicle.efficiency}L/100KM = ${Math.ceil(fuelConsumption)} liters </div>
+            </div>
+        `;
         }
 
         else {
             document.getElementById(id + "-cost-estimate-output").innerHTML = `
                 <p> Please enter the distance in KMs to see your travel estimates </p>
-            `
+            `;
         }
     }
 
 
     function makeImageSlider(vehicle){
-        var imageSlider = ''
+        var imageSlider = '';
         vehicle.images.forEach(image => {
-            imageSlider += `<li> <img src="images/${image}"> </li>`
-        })
-        return imageSlider
+            imageSlider += `<li> <img src="images/${image}"> </li>`;
+        });
+        return imageSlider;
+    }
+
+    function slideUp() {
+        $('.vehicles-output').toggleClass('is-active');
     }
 
     //Capture submit event data from form
     document.getElementById("form").addEventListener("submit", (e) => {
-        e.preventDefault()
+        e.preventDefault();
         update({
             passengers: e.target.elements.passengers.value,
             days: e.target.elements.days.value,
-        })
-    })
+        });
+        
+        slideUp();
+    });
 
     document.addEventListener("DOMContentLoaded", function(event) { 
 

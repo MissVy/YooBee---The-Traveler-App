@@ -198,7 +198,13 @@ header h1 {
           flex: 1;
   letter-spacing: 5px;
   margin: auto;
-  font-size: 25px;
+  font-size: 20px;
+}
+
+@media (min-width: 992px) {
+  header h1 {
+    font-size: 25px;
+  }
 }
 
 header h1.text-fancy {
@@ -311,46 +317,71 @@ header .logo-small {
 }
 
 .vehicle-card {
-  display: inline-block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   position: relative;
+  padding: 50px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .vehicle-card {
     height: calc(100vh - 50px);
   }
 }
 
-@media (min-width: 992px) {
-  .vehicle-card {
-    padding: 80px 50px 0 0;
-  }
-}
-
-@media (min-width: 1200px) {
-  .vehicle-card {
-    padding: 100px;
-  }
-}
-
 .vehicle-card .vehicle-card-container {
   position: relative;
-  height: 100%;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (min-width: 992px) {
+  .vehicle-card .vehicle-card-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
 }
 
 .vehicle-card .verhicle-images {
+  padding: 50px 20px 0;
+  width: 100%;
+  z-index: 1;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
   z-index: 1;
   width: 50%;
-  height: 100%;
-  height: 350px;
+  text-align: center;
+}
+
+@media (min-width: 992px) {
+  .vehicle-card .verhicle-images {
+    width: 50%;
+  }
 }
 
 .vehicle-card .verhicle-images img {
   width: 100%;
+}
+
+.vehicle-card .verhicle-images .splide {
+  width: 400px;
+  margin: 0 auto;
+}
+
+@media (min-width: 1200px) {
+  .vehicle-card .verhicle-images .splide {
+    width: 700px;
+  }
+}
+
+.vehicle-card .verhicle-images .splide li {
+  width: 100%;
+  height: 100%;
 }
 
 .vehicle-card .vehicle-info {
@@ -365,7 +396,21 @@ header .logo-small {
   padding: 2rem 5rem;
   right: 0;
   width: 50%;
-  height: 100%;
+}
+
+.vehicle-card h2 {
+  -webkit-box-flex: 40%;
+      -ms-flex: 40%;
+          flex: 40%;
+  text-transform: uppercase;
+}
+
+.vehicle-card .vehicle-info-details {
+  -webkit-box-flex: 60%;
+      -ms-flex: 60%;
+          flex: 60%;
+  font-size: 14px;
+  padding-bottom: 20px;
 }
 
 .transport-cost-output-container {

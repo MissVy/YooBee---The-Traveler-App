@@ -25,7 +25,11 @@ header {
         flex: 1;
         letter-spacing: 5px;
         margin: auto;
-        font-size: 25px;
+        font-size: 20px;
+
+        @include large {
+            font-size: 25px;
+        }
         
         &.text-fancy {
             padding: 0 0 0 20px;

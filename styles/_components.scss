@@ -77,36 +77,58 @@
     }
 }
 
+
 .vehicle-card {
-    display: inline-block;
+    display: flex;
     position: relative;
+    padding: 50px;
 
-    @include medium {
-        height: calc(100vh - 50px);
-    }
-
-    @include large {
-        padding: 80px 50px 0 0;
-    }
     @include xlarge {
-        padding: 100px;
+        height: calc(100vh - 50px);
     }
 
     .vehicle-card-container {
         position: relative;
-        height: 100%;
         width: 100%;
-        display: flex;
+        align-items: center;
+        
+        @include large {
+            display: flex;
+        }
     }
 
+
     .verhicle-images {
+        padding: 50px 20px 0;
+        width: 100%;
+        z-index: 1;
+        text-align: center;
+        margin: 0 auto;
+        position: relative;
         z-index: 1;
         width: 50%;
-        height: 100%;
-        height: 350px;
+        text-align: center;
+
+        @include large {
+            width: 50%;
+        }
 
         img {
             width: 100%;
+        }
+
+        .splide {
+            width: 400px;
+            margin: 0 auto;
+
+            @include xlarge {
+                width: 700px;
+            }
+
+            li {
+                width: 100%;
+                height: 100%;
+            }
         }
     }
 
@@ -120,9 +142,23 @@
         padding: 2rem 5rem;
         right: 0;
         width: 50%;
-        height: 100%;;
+    }
+
+    h2 {
+        flex: 40%;
+        text-transform: uppercase;
+    }
+
+    .vehicle-info-details {
+        flex: 60%;
+        font-size: 14px;
+        padding-bottom: 20px;
+        
     }
 }
+
+
+
 
 .transport-cost-output-container {
     padding: 20px;
